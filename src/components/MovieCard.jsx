@@ -1,10 +1,10 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import { Row, Col } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 const MovieCard = ({ data }) => {
   return (
-    <Row>
+    <>
       {data.results.map((movie) => (
         <Col>
           <Card key={movie.id}>
@@ -16,7 +16,7 @@ const MovieCard = ({ data }) => {
           </Card>
         </Col>
       ))}
-    </Row>
+    </>
   );
 };
 

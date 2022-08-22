@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
 import MovieCard from '../components/MovieCard';
-import MovieAPI from '../services/MovieAPI';
+import usePopMovie from '../hooks/usePopMovie';
+import Container from 'react-bootstrap/Container';
 
 const PopularMoviePage = () => {
-  const { data } = useQuery(['popMovie'], MovieAPI.getMoviesPopular);
+  const { data } = usePopMovie();
 
-  return <>{data && <MovieCard data={data} />}</>;
+  return (
+    <Container>
+      <h1>Popular Movies</h1>
+      {data && <MovieCard data={data} />}
+    </Container>
+  );
 };
 
 export default PopularMoviePage;
