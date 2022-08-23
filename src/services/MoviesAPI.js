@@ -25,9 +25,15 @@ export const getSingleMovie = ({ queryKey }) => {
   return get(`${axios.defaults.baseURL}/movie/${id}${API_KEY}&append_to_response=credits`);
 };
 
+export const getSingleActor = ({ queryKey }) => {
+  const [actor, { id }] = queryKey;
+  return get(`${axios.defaults.baseURL}/actor/${id}${API_KEY}&append_to_response=credits`);
+};
+
 export default {
   getMoviesPopular,
   getTopMovies,
   getTheaterMovies,
   getSingleMovie,
+  getSingleActor,
 };
