@@ -22,7 +22,7 @@ export const getTheaterMovies = () => {
 
 export const getSingleMovie = ({ queryKey }) => {
   const [movie, { id }] = queryKey;
-  return get(`${axios.defaults.baseURL}/movie/${id}${API_KEY}`);
+  return get(`${axios.defaults.baseURL}/movie/${id}${API_KEY}&append_to_response=credits`);
 };
 
 export default {
