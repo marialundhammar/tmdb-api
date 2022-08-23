@@ -12,6 +12,11 @@ export const getMoviesPopular = () => {
   return get(`${axios.defaults.baseURL}/movie/popular${API_KEY}`);
 };
 
+export const getTopMovies = () => {
+  return get(`${axios.defaults.baseURL}/movie/top_rated${API_KEY}`);
+};
+
 export default {
   getMoviesPopular,
+  getTopMovies,
 };

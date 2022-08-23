@@ -1,8 +1,8 @@
 import { useQuery } from 'react-query';
-import MovieAPI from '../services/MovieAPI';
+import MoviesAPI from '../services/MoviesAPI';
 
 const usePopMovie = () => {
-  return useQuery('popMovies', MovieAPI.getMoviesPopular);
+  return useQuery('popMovies', MoviesAPI.getMoviesPopular);
 };
 
 export default usePopMovie;
