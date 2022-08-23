@@ -1,15 +1,18 @@
 import MovieCard from '../components/MovieCard';
 import usePopMovie from '../hooks/usePopMovie';
-import Container from 'react-bootstrap/Container';
+import { Container, Col, Row } from 'react-bootstrap';
 
 const PopularMoviesPage = () => {
   const { data, error, isLoading, isError } = usePopMovie();
 
   return (
-    <Container>
+    <Container className='py-3'>
       <h1>Popular Movies</h1>
-
-      {data && <MovieCard data={data} />}
+      {data && (
+        <Row>
+          <MovieCard data={data} />
+        </Row>
+      )}
     </Container>
   );
 };

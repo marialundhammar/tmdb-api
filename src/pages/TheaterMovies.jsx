@@ -4,7 +4,7 @@ import MoviesAPI from '../services/MoviesAPI';
 import { useQuery } from 'react-query';
 
 const TopMoviesPage = () => {
-  const { data } = useQuery('topMovies', MoviesAPI.getTopMovies);
+  const { data } = useQuery('theaterMovies', MoviesAPI.getTheaterMovies);
 
   return (
     <Container>

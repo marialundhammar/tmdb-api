@@ -16,7 +16,18 @@ export const getTopMovies = () => {
   return get(`${axios.defaults.baseURL}/movie/top_rated${API_KEY}`);
 };
 
+export const getTheaterMovies = () => {
+  return get(`${axios.defaults.baseURL}/movie/now_playing${API_KEY}`);
+};
+
+export const getSingleMovie = ({ queryKey }) => {
+  const [movie, { id }] = queryKey;
+  return get(`${axios.defaults.baseURL}/movie/${id}${API_KEY}`);
+};
+
 export default {
   getMoviesPopular,
   getTopMovies,
+  getTheaterMovies,
+  getSingleMovie,
 };
