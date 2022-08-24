@@ -11,11 +11,9 @@ const ActorsList = ({ data }) => {
         <Card.Body>
           <ListGroup>
             {data.credits.cast.map((cast) => (
-              <ListGroup.Item key={cast.id}>
-                {cast.name}{' '}
-                <Link to={`/actor/${cast.id}`} className='btn btn-primary' role='button'>
-                  Read more
-                </Link>{' '}
+              <ListGroup.Item key={cast.id} as={Link} to={`/actor/${cast.id}`}>
+                {cast.name}
+                {cast.id}
               </ListGroup.Item>
             ))}
           </ListGroup>

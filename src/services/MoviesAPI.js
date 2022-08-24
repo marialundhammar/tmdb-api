@@ -27,7 +27,7 @@ export const getSingleMovie = ({ queryKey }) => {
 
 export const getSingleActor = ({ queryKey }) => {
   const [actor, { id }] = queryKey;
-  return get(`${axios.defaults.baseURL}/actor/${id}${API_KEY}&append_to_response=credits`);
+  return get(`${axios.defaults.baseURL}/person/${id}${API_KEY}&append_to_response=movie_credits`);
 };
 
 export default {
