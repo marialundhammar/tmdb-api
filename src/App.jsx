@@ -8,6 +8,8 @@ import TopMoviesPage from './pages/TopMovies';
 import TheaterMoviesPage from './pages/TheaterMovies';
 import SingleMoviePage from './pages/SingleMovie';
 import SingleActorPage from './pages/SingleActor';
+import GenresPage from './pages/GenresPage';
+import GenrePage from './pages/GenrePage';
 import './assets/scss/App.scss';
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
         <Route path='/theaterMovies' element={<TheaterMoviesPage />} />
         <Route path='/movie/:id' element={<SingleMoviePage />} />
         <Route path='/actor/:id' element={<SingleActorPage />} />
+        <Route path='/genres' element={<GenresPage />} />
+        <Route path='/genre/:id' element={<GenrePage />} />
       </Routes>
 
       <ReactQueryDevtools position='bottom-right' />
