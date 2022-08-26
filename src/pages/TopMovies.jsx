@@ -8,7 +8,7 @@ const TopMoviesPage = () => {
 
   return (
     <Container>
-      <h1>Popular Movies</h1>
+      <h1>Top Movies</h1>
 
       {data && (
         <Row>

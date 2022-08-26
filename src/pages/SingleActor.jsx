@@ -6,13 +6,21 @@ import { Container, Row } from 'react-bootstrap';
 
 const SingleActorPage = () => {
   const { id } = useParams();
-  const { data } = useQuery(['singleMovie', { id }], MoviesAPI.getSingleActor);
-
-  console.log(data);
+  const { data, isLoading, isError, error } = useQuery(['singleMovie', { id }], MoviesAPI.getSingleActor);
 
   return (
     <Container className='py-3'>
       <h1>Actor</h1>
+
+      {isLoading && <p>Loading movies...</p>}
+
+      {isError && (
+        <Alert variant='danger'>
+          <h3>ERROR!</h3>
+          <p>{error.message}</p>
+        </Alert>
+      )}
+
       {data && (
         <Row>
           <SingleActorCard data={data} />

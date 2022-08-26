@@ -4,11 +4,20 @@ import MoviesAPI from '../services/MoviesAPI';
 import { useQuery } from 'react-query';
 
 const TopMoviesPage = () => {
-  const { data } = useQuery('theaterMovies', MoviesAPI.getTheaterMovies);
+  const { data, isLoading, isError, error } = useQuery('theaterMovies', MoviesAPI.getTheaterMovies);
 
   return (
     <Container>
-      <h1>Popular Movies</h1>
+      <h1>Movies at theater </h1>
+
+      {isLoading && <p>Loading movies...</p>}
+
+      {isError && (
+        <Alert variant='danger'>
+          <h3>ERROR!</h3>
+          <p>{error.message}</p>
+        </Alert>
+      )}
 
       {data && (
         <Row>

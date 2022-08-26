@@ -8,13 +8,20 @@ import React from 'react';
 
 const SingleMoviePage = () => {
   const { id } = useParams();
-  const { data } = useQuery(['singleMovie', { id }], MoviesAPI.getSingleMovie);
-
-  console.log(data);
+  const { data, isLoading, isError, error } = useQuery(['singleMovie', { id }], MoviesAPI.getSingleMovie);
 
   return (
     <Container className='py-3'>
       <h1>Single Movies</h1>
+
+      {isLoading && <p>Loading movies...</p>}
+
+      {isError && (
+        <Alert variant='danger'>
+          <h3>ERROR!</h3>
+          <p>{error.message}</p>
+        </Alert>
+      )}
       {data && (
         <Row>
           <SingleMovieCard data={data} />

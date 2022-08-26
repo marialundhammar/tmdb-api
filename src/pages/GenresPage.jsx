@@ -6,13 +6,12 @@ import Alert from 'react-bootstrap/Alert';
 
 const GenresPage = () => {
   const { data, error, isError, isLoading } = useQuery(['genres'], MoviesAPI.getGenres);
-  console.log({ data });
 
   return (
     <Container className='py-3'>
       <h1>Genres</h1>
 
-      {isLoading && <p> Loading genres </p>}
+      {isLoading && <p> Loading genres.. </p>}
 
       {isError && (
         <Alert variant='danger'>
