@@ -1,1 +1,69 @@
 @import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&display=swap');
+
+body {
+  background: rgb(173, 65, 255);
+  background: linear-gradient(318deg, rgba(173, 65, 255, 1) 0%, rgba(211, 190, 255, 1) 35%, rgb(53, 59, 141) 100%);
+  color: #1d0964;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 1.4rem;
+  margin: 0.5rem;
+  text-shadow: 2px 2px #1d0964;
+}
+
+h2 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3rem;
+  color: rgba(211, 190, 255, 1);
+  text-shadow: 2px 2px #1d0964;
+  margin: 0.5rem;
+}
+
+h3 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  padding: 0.6rem;
+}
+.navigation {
+  background: rgb(19, 21, 59);
+}
+.genres {
+  background: #1d0964;
+  border: none;
+  font-size: 1.3rem;
+  margin: 2rem;
+}
+
+.genres:hover {
+  background-color: rgb(77, 152, 250);
+}
+
+.card {
+  background-color: rgb(28, 25, 73);
+  height: 34rem;
+}
+
+.card:hover {
+  background-color: rgb(77, 152, 250);
+  border: none;
+  color: white;
+  margin-right: 1px;
+  margin-left: 1px;
+  opacity: 0.6;
+  transition: 0.1s;
+}
+
+.card-title {
+  font-size: 2rem;
+  color: white;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.single-movie-body {
+  padding: 1rem;
+}

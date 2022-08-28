@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+
 const API_KEY = '?api_key=d601d125e240a2fd1b1f194d234095ee';
 const ADULT = '&include_adult=false';
 
@@ -38,8 +39,8 @@ export const getGenres = () => {
 };
 
 export const getSingleGenre = ({ queryKey }) => {
-  const [_key, { id, page }] = queryKey;
-  return get(`${axios.defaults.baseURL}/discover/movie${API_KEY}&include_adult=false&with_genres=${id}&page=${page}`);
+  const [_key, { id, page, genreName }] = queryKey;
+  return get(`${axios.defaults.baseURL}/discover/movie${API_KEY}${ADULT}&with_genres=${id}&page=${page}`);
 };
 
 export default {

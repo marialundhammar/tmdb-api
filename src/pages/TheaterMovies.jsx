@@ -8,7 +8,7 @@ const TopMoviesPage = () => {
 
   return (
     <Container>
-      <h1>Movies at theater </h1>
+      <h2>Movies at theater </h2>
 
       {isLoading && <p>Loading movies...</p>}
 

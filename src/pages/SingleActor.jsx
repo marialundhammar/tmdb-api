@@ -10,7 +10,7 @@ const SingleActorPage = () => {
 
   return (
     <Container className='py-3'>
-      <h1>Actor</h1>
+      <h2>Actor</h2>
 
       {isLoading && <p>Loading movies...</p>}
 
@@ -21,11 +21,7 @@ const SingleActorPage = () => {
         </Alert>
       )}
 
-      {data && (
-        <Row>
-          <SingleActorCard data={data} />
-        </Row>
-      )}
+      {data && <SingleActorCard data={data} />}
     </Container>
   );
 };

@@ -7,7 +7,7 @@ const PopularMoviesPage = () => {
 
   return (
     <Container className='py-3'>
-      <h1>Popular Movies</h1>
+      <h2>Popular Movies</h2>
       {isLoading && <p>Loading movies...</p>}
 
       {isError && (
@@ -17,11 +17,7 @@ const PopularMoviesPage = () => {
         </Alert>
       )}
 
-      {data && (
-        <Row>
-          <MovieCard data={data} />
-        </Row>
-      )}
+      {data && <MovieCard data={data} />}
     </Container>
   );
 };

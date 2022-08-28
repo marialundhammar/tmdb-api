@@ -1,25 +1,17 @@
 import React from 'react';
-import { Card, ListGroup } from 'react-bootstrap';
+import { Card, ListGroup, Container, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ActorsList = ({ data }) => {
   return (
-    <>
-      <Card key={data.id} style={{ width: '30%' }}>
-        <Card.Title>Actors</Card.Title>
-
-        <Card.Body>
-          <ListGroup>
-            {data.credits.cast.map((cast) => (
-              <ListGroup.Item key={cast.id} as={Link} to={`/actor/${cast.id}`}>
-                {cast.name}
-                {cast.id}
-              </ListGroup.Item>
-            ))}
-          </ListGroup>
-        </Card.Body>
-      </Card>
-    </>
+    <Container>
+      <h3>Actors in the movie:</h3>
+      {data.credits.cast.map((cast) => (
+        <Button key={cast.id} href={`/actor/${cast.id}`} className='m-2 genres'>
+          {cast.name}
+        </Button>
+      ))}
+    </Container>
   );
 };
 

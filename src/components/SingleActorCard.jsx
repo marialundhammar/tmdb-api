@@ -1,23 +1,37 @@
 import React from 'react';
-import { Card, ListGroup } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import MovieCard from './MovieCard';
 
 const SingleActorCard = ({ data }) => {
   return (
     <>
-      <Card key={data.id}>
-        <Card.Title>{data.name}</Card.Title>
+      <Container key={data.id}>
+        <Row>
+          <h3>{data.name}</h3>
+          <h4>{data.birthday}</h4>
+        </Row>
+        <Row className='d-flex justify-content-between p-4'>
+          <Col lg='3' md='5' sm='10'>
+            <Image src={'https://image.tmdb.org/t/p/w400' + data.profile_path} fluid></Image>
+          </Col>
+          <Col lg='7' md='5' sm='10' className='py-2'>
+            <p>{data.biography}</p>
+          </Col>
+        </Row>
 
-        <Card.Body>
-          <Card.Text>Films {data.name} has been in: </Card.Text>
-          <ListGroup>
+        <Row className='d-flex justify-content-center'>
+          <Col lg='12' md='5' sm='10' className=''>
+            <h3>Films {data.name} has been in:</h3>
+
             {data.movie_credits.cast.map((movie) => (
-              <ListGroup.Item key={movie.id}>{movie.original_title}</ListGroup.Item>
+              <Button key={movie.id} href={`/movie/${movie.id}`} className='m-2 genres'>
+                {movie.original_title}
+              </Button>
             ))}
-          </ListGroup>
-        </Card.Body>
-      </Card>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

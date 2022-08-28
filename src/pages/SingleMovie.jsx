@@ -5,6 +5,7 @@ import MoviesAPI from '../services/MoviesAPI';
 import SingleMovieCard from '../components/SingleMovieCard';
 import ActorsList from '../components/ActorsList';
 import React from 'react';
+import GenreList from '../components/GenreList';
 
 const SingleMoviePage = () => {
   const { id } = useParams();
@@ -12,7 +13,7 @@ const SingleMoviePage = () => {
 
   return (
     <Container className='py-3'>
-      <h1>Single Movies</h1>
+      <h2>Single Movies</h2>
 
       {isLoading && <p>Loading movies...</p>}
 
@@ -23,17 +24,14 @@ const SingleMoviePage = () => {
         </Alert>
       )}
       {data && (
-        <Row>
-          <SingleMovieCard data={data} />
-          <ActorsList data={data} />
-
-          <h3>Genres:</h3>
-          <ul>
-            {data.genres.map((genre) => (
-              <li key={genre.id}>{genre.name}</li>
-            ))}
-          </ul>
-        </Row>
+        <>
+          <Row className='single-movie-body'>
+            <Col className="lg='3' md='5' sm='10'">
+              <SingleMovieCard data={data} />
+              <ActorsList data={data} />
+            </Col>
+          </Row>
+        </>
       )}
     </Container>
   );

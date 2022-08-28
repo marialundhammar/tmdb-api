@@ -5,10 +5,10 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Navigation = () => {
   return (
-    <Navbar bg='dark' variant='dark' expand='md'>
+    <Navbar className='navigation' variant='dark' expand='md'>
       <Container>
         <Navbar.Brand as={Link} to='/'>
-          React Template
+          <h1>The Movie Database API</h1>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls='basic-navbar-nav' />

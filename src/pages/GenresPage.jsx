@@ -1,15 +1,15 @@
 import MoviesAPI from '../services/MoviesAPI';
 import { useQuery } from 'react-query';
 import { Container, Row, Card, ListGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import Alert from 'react-bootstrap/Alert';
+import GenreList from '../components/GenreList';
 
 const GenresPage = () => {
   const { data, error, isError, isLoading } = useQuery(['genres'], MoviesAPI.getGenres);
 
   return (
-    <Container className='py-3'>
-      <h1>Genres</h1>
+    <Container className='py-3' style={{ height: '100em' }}>
+      <h2>Genres</h2>
 
       {isLoading && <p> Loading genres.. </p>}
 
@@ -20,20 +20,7 @@ const GenresPage = () => {
         </Alert>
       )}
 
-      {data && (
-        <Card>
-          <Card.Body>
-            <ListGroup>
-              {data.genres.map((genre) => (
-                <ListGroup.Item key={genre.id} as={Link} to={`/genre/${genre.id}`}>
-                  {genre.name}
-                  {genre.id}
-                </ListGroup.Item>
-              ))}
-            </ListGroup>
-          </Card.Body>
-        </Card>
-      )}
+      {data && <GenreList data={data} />}
     </Container>
   );
 };
