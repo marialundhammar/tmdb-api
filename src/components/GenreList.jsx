@@ -1,12 +1,12 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const GenreList = ({ data }) => (
   <>
     {data.genres.map((genre) => (
-      <Button key={genre.id} href={`/genre/${genre.id}`} className='m-2 genres'>
+      <Link to={`/genre/${genre.id}`} key={genre.id} className='genre' role='Button'>
         {genre.name}
-      </Button>
+      </Link>
     ))}
   </>
 );

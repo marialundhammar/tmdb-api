@@ -7,9 +7,9 @@ const ActorsList = ({ data }) => {
     <Container>
       <h3>Actors in the movie:</h3>
       {data.credits.cast.map((cast) => (
-        <Button key={cast.id} href={`/actor/${cast.id}`} className='genres'>
+        <Link to={`/actor/${cast.id}`} key={cast.id} className='genre' role='Button'>
           {cast.name}
-        </Button>
+        </Link>
       ))}
     </Container>
   );
