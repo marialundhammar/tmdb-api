@@ -1,7 +1,8 @@
 import MovieCard from '../components/MovieCard';
 import usePopMovie from '../hooks/usePopMovie';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
+//Getting all the popular movies
 const PopularMoviesPage = () => {
   const { data, error, isLoading, isError } = usePopMovie();
 

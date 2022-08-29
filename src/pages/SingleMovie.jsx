@@ -1,12 +1,12 @@
-import { Container, Col, Row, Card } from 'react-bootstrap';
+import { Container, Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import MoviesAPI from '../services/MoviesAPI';
 import SingleMovieCard from '../components/SingleMovieCard';
 import ActorsList from '../components/ActorsList';
 import React from 'react';
-import GenreList from '../components/GenreList';
 
+//Informaton about a single movie
 const SingleMoviePage = () => {
   const { id } = useParams();
   const { data, isLoading, isError, error } = useQuery(['singleMovie', { id }], MoviesAPI.getSingleMovie);

@@ -9,7 +9,7 @@ const SingleActorCard = ({ data }) => {
         <Row></Row>
         <Row className='d-flex justify-content-between p-4'>
           <Col lg='3' md='5' sm='10'>
-            <Image src={'https://image.tmdb.org/t/p/w400' + data.profile_path} fluid></Image>
+            <Image src={'https://image.tmdb.org/t/p/w500' + data.profile_path} className='my-5' rounded fluid></Image>
           </Col>
           <Col lg='8' md='5' sm='10' className='py-2'>
             <h3>{data.name}</h3>
@@ -20,12 +20,12 @@ const SingleActorCard = ({ data }) => {
 
         <Row className='d-flex justify-content-center'>
           <Col lg='12' md='5' sm='10' className=''>
-            <h3>Films {data.name} has been in:</h3>
+            <h3 className='m-2'>Films {data.name} has been in:</h3>
 
             {data.movie_credits.cast.map((movie) => (
-              <Link to={`/movie/${movie.id}`} key={movie.id} className='genres btn'>
+              <Button as={Link} to={`/movie/${movie.id}`} key={movie.id} variant='outline-light m-2 p-2'>
                 {movie.original_title}
-              </Link>
+              </Button>
             ))}
           </Col>
         </Row>

@@ -2,9 +2,11 @@ import MoviesAPI from '../services/MoviesAPI';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import SingleActorCard from '../components/SingleActorCard';
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
+//Information about a single actor
 const SingleActorPage = () => {
+  //getting the actor id from the url
   const { id } = useParams();
   const { data, isLoading, isError, error } = useQuery(['singleMovie', { id }], MoviesAPI.getSingleActor);
 

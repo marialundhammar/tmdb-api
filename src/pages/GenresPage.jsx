@@ -1,9 +1,10 @@
 import MoviesAPI from '../services/MoviesAPI';
 import { useQuery } from 'react-query';
-import { Container, Row, Card, ListGroup } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Alert from 'react-bootstrap/Alert';
 import GenreList from '../components/GenreList';
 
+//Page for getting all the genres
 const GenresPage = () => {
   const { data, error, isError, isLoading } = useQuery(['genres'], MoviesAPI.getGenres);
 

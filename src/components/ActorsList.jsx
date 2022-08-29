@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 const ActorsList = ({ data }) => {
   return (
     <Container>
-      <h3>Actors in the movie:</h3>
+      <h3 className='m-2'>Actors in the movie:</h3>
       {data.credits.cast.map((cast) => (
-        <Link to={`/actor/${cast.id}`} key={cast.id} className='genres btn' role='Button'>
+        <Button as={Link} to={`/actor/${cast.id}`} key={cast.id} variant='outline-light m-2 '>
           {cast.name}
-        </Link>
+        </Button>
       ))}
     </Container>
   );

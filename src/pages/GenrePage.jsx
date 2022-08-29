@@ -1,23 +1,28 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import MoviesAPI from '../services/MoviesAPI';
-import { Container, Row, Button } from 'react-bootstrap';
+import { Container, Row, Button, Col } from 'react-bootstrap';
 import MovieCard from '../components/MovieCard';
 import Alert from 'react-bootstrap/Alert';
 import { useSearchParams } from 'react-router-dom';
+import GenreList from '../components/GenreList';
 
+//Singe genre page
 const GenrePage = () => {
+  //set page number 1 when clicking in on a genre
   const [searchParams, setSearchParams] = useSearchParams({
     page: 1,
   });
 
+  //get the right page
   const page = searchParams.get('page');
+
+  //find the right genre-id in the url
   const { id } = useParams();
 
-  const { data, error, isError, isLoading } = useQuery(['genre', { id, page }], MoviesAPI.getSingleGenre);
-  console.log({ id });
-  console.log({ page });
-  console.log({ data });
+  //Take in both the data for all the genres and the data for single genre that is clicked
+  const { data: genresData } = useQuery(['genres'], MoviesAPI.getGenres);
+  const { data: genreData, error, isError, isLoading } = useQuery(['genre', { id, page }], MoviesAPI.getSingleGenre);
 
   return (
     <Container className='py-3'>
@@ -29,10 +34,17 @@ const GenrePage = () => {
           <p>{error.message}</p>
         </Alert>
       )}
-      {data && (
+      {genreData && (
         <>
           <Row>
-            <MovieCard data={data} />
+            <Col>
+              <GenreList data={genresData} id={id} />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <MovieCard data={genreData} />
+            </Col>
           </Row>
 
           <div className='d-flex justify-content-between align-items-center mt-4'>
@@ -45,11 +57,11 @@ const GenrePage = () => {
             </Button>
 
             <span>
-              Page: {page} / {data.total_pages}
+              Page: {page} / {genreData.total_pages}
             </span>
 
             <Button
-              disabled={page === data.total_pages}
+              disabled={page === genreData.total_pages}
               onClick={() => setSearchParams({ page: `${Number(page) + 1}` })}
               variant='primary'
             >

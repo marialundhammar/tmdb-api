@@ -12,7 +12,8 @@ const SingleMovieCard = ({ data }) => {
 
         <Col lg='7' md='5' sm='10'>
           <h3>Title: {data.title}</h3>
-          <h4>About the film</h4>
+          <p>Release date: {data.release_date}</p>
+
           <p className='my-4'>{data.overview}</p>
         </Col>
       </Row>
