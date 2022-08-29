@@ -32,16 +32,16 @@ export const getSingleMovie = ({ queryKey }) => {
 
 export const getSingleActor = ({ queryKey }) => {
   const [actor, { id }] = queryKey;
-  return get(`${axios.defaults.baseURL}/person/${id}${API_KEY}&append_to_response=movie_credits${ADULT}`);
+  return get(`${axios.defaults.baseURL}/person/${id}${API_KEY}&append_to_response=movie_credits`);
 };
 
 export const getGenres = () => {
-  return get(`${axios.defaults.baseURL}/genre/movie/list${API_KEY}${ADULT}`);
+  return get(`${axios.defaults.baseURL}/genre/movie/list${API_KEY}`);
 };
 
 export const getSingleGenre = ({ queryKey }) => {
   const [_key, { id, page }] = queryKey;
-  return get(`${axios.defaults.baseURL}/discover/movie${API_KEY}${ADULT}&with_genres=${id}&page=${page}`);
+  return get(`${axios.defaults.baseURL}/discover/movie${API_KEY}&with_genres=${id}&page=${page}`);
 };
 
 export default {
