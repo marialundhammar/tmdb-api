@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import MovieCard from './MovieCard';
 
 const SingleActorCard = ({ data }) => {
   return (
@@ -24,9 +23,9 @@ const SingleActorCard = ({ data }) => {
             <h3>Films {data.name} has been in:</h3>
 
             {data.movie_credits.cast.map((movie) => (
-              <Button key={movie.id} href={`/movie/${movie.id}`} className='genres'>
+              <Link to={`/movie/${movie.id}`} key={movie.id} className='genres btn'>
                 {movie.original_title}
-              </Button>
+              </Link>
             ))}
           </Col>
         </Row>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const GenreList = ({ data }) => (
   <>
     {data.genres.map((genre) => (
-      <Link to={`/genre/${genre.id}`} key={genre.id} className='genre' role='Button'>
+      <Link to={`/genre/${genre.id}`} key={genre.id} className='genres btn' role='Button'>
         {genre.name}
       </Link>
     ))}
