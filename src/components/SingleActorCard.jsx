@@ -7,15 +7,14 @@ const SingleActorCard = ({ data }) => {
   return (
     <>
       <Container key={data.id}>
-        <Row>
-          <h3>{data.name}</h3>
-          <h4>{data.birthday}</h4>
-        </Row>
+        <Row></Row>
         <Row className='d-flex justify-content-between p-4'>
           <Col lg='3' md='5' sm='10'>
             <Image src={'https://image.tmdb.org/t/p/w400' + data.profile_path} fluid></Image>
           </Col>
-          <Col lg='7' md='5' sm='10' className='py-2'>
+          <Col lg='8' md='5' sm='10' className='py-2'>
+            <h3>{data.name}</h3>
+            <h4> Born: {data.birthday} </h4>
             <p>{data.biography}</p>
           </Col>
         </Row>
@@ -25,7 +24,7 @@ const SingleActorCard = ({ data }) => {
             <h3>Films {data.name} has been in:</h3>
 
             {data.movie_credits.cast.map((movie) => (
-              <Button key={movie.id} href={`/movie/${movie.id}`} className='m-2 genres'>
+              <Button key={movie.id} href={`/movie/${movie.id}`} className='genres'>
                 {movie.original_title}
               </Button>
             ))}
