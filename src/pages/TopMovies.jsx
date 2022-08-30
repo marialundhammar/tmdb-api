@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import MoviesAPI from '../services/MoviesAPI';
 import { useQuery } from 'react-query';
 
+//getting top movies
 const TopMoviesPage = () => {
   const { data } = useQuery('topMovies', MoviesAPI.getTopMovies);
 

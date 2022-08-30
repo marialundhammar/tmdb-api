@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, ListGroup, Container, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+//List of all actors in a film
 const ActorsList = ({ data }) => {
   return (
     <Container>
